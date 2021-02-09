@@ -1,0 +1,29 @@
+[bootstrap]
+main_collection = /main/main.collectionc
+
+[script]
+shared_state = 1
+
+[display]
+width = 480
+height = 800
+high_dpi = 1
+
+[android]
+input_method = HiddenInputField
+
+[project]
+title = webgl1_fallback_test
+version = 1.0.0
+
+[html5]
+heap_size = 128
+cssfile = /builtins/manifests/web/dark_theme.css
+scale_mode = fit
+
+[render]
+clear_color_alpha = 1.0
+clear_color_red = 0.15
+clear_color_green = 0.15
+clear_color_blue = 0.15
+

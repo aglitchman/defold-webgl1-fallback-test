@@ -1,0 +1,15 @@
+dist: xenial
+language: java
+
+script:
+  - mkdir -p build || travis_terminate 1
+  - wget --progress=dot:mega https://d.defold.com/archive/33c9cdaf327cbc01c3696b471d9c9e0d1db6712d/bob/bob.jar -O build/bob.jar || travis_terminate 1
+  - java -jar build/bob.jar --build-server https://build-stage.defold.com/ --email foo@bar.com --auth 12345 --texture-compression true --bundle-output build/bundle/js-web --platform js-web --variant debug --archive resolve build bundle || travis_terminate 1
+
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $GITHUB_TOKEN
+  local_dir: build/bundle/js-web/webgl1_fallback_test
+  on:
+    branch: main

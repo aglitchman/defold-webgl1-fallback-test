@@ -1,0 +1,14 @@
+function init(self)
+    timer.delay(1, false, function (self)
+        print("Loading proxy")
+        msg.post("#collectionproxy", "load")
+    end)
+
+end
+
+function on_message(self, message_id, message, sender)
+    if message_id == hash("proxy_loaded") then
+        print("Proxy loaded")
+        msg.post("#collectionproxy", "enable")
+    end
+end
