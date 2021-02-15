@@ -3,7 +3,7 @@ language: java
 
 script:
   - mkdir -p build || travis_terminate 1
-  - wget --progress=dot:mega https://d.defold.com/archive/a521d32178b4049f0b785301b99eac6517f91b4c/bob/bob.jar -O build/bob.jar || travis_terminate 1
+  - wget --progress=dot:mega https://d.defold.com/archive/71e3eef705806893f25f1cdcb108f348ffe4e711/bob/bob.jar -O build/bob.jar || travis_terminate 1
   - java -jar build/bob.jar --build-server https://build-stage.defold.com/ --email foo@bar.com --auth 12345 --texture-compression true --bundle-output build/bundle/js-web --platform js-web --variant debug --archive resolve build bundle || travis_terminate 1
 
 deploy:
